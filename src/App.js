@@ -1,4 +1,5 @@
-// import logo from './logo.svg';
+// import logo from './ladderIcon_01.png';
+import logo from './logo.svg';
 import './App.css';
 
 import Search from './components/search/Search.js';
@@ -9,11 +10,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        logo image
+        <img src = {logo} className="App-logo" alt="logo" />
       </header>
-      <Search />
-      <Filter />
-      <Items />
+
+      <section className="filterSearch">
+        <Filter className="filter"/>
+        <Search className="search"/>
+      </section>
+
+      <section className="items">
+        <Items />
+      </section>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 const Search = () => {
-    return <p>search tag</p>
+    return <input name="search"
+                placeholder="Enter search here"/>
 };
 
 export default Search;
