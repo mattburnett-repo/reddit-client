@@ -1,9 +1,15 @@
+* {
+  border: 1px solid pink;
+  margin: 5px;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
+  width: 20vmin;
   pointer-events: none;
   border-radius: 50%;
 }
@@ -15,16 +21,30 @@
 }
 
 .App-header {
-  /* background-color: #282c34; */
   background-color: lightblue;
-  /* min-height: 100vh; */
-  min-height: 50vh;
-  display: flex;
+  min-height: 25vh;
+
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center; */
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  font-size: calc(20px + 2vmin);
+  font-weight: 600;
+  color: darkblue;
+}
+
+.headerLeftText {
+  text-align: left;
+}
+
+.headerRightText {
+  text-align: right;
 }
 
 .App-link {
@@ -51,28 +71,36 @@ section {
 }
 
 .filterSearch {
-  border: 5px solid black;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 510px) {
+  .filterSearch {
+    justify-content: center;
+  };
+  .App-header {
+    justify-content: center;
+  }
 }
 
 .filter {
-  display: flex;
+  /* display: block; */
   float: left;
-  border: 10px solid black;
   padding-left: 20px;
 
-  vertical-align: top;
   margin-right: 20px;
-  line-height: 4.2rem;   /* if you want it vertically middle of the navbar */
+  line-height: 4.2rem;   
   text-decoration: none;
 }
 .search {
-  display: flex;
+  /* display: inline; */
   float: right;
-  border: 10px solid black;
   padding-right: 20px;
 }
 
 .items {
-  border: 1px solid black;
+  display: inline-block;
 }

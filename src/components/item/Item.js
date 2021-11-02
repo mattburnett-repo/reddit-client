@@ -1,5 +1,5 @@
 const Item = () => {
-    return (<div>a single item</div>);
+    return <p>a single item</p>;
 }
 
 export default Item;
