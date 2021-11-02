@@ -9,10 +9,6 @@ import Items from './components/items/Items.js';
 function App() {
   return (
     <div className="App">
-      {/* 
-          TODO: one line for larger screen, then reddit over logo over client
-              for smaller screens
-       */}
       <header className="App-header">
         <div className="headerLeftText">REDDIT</div> 
         <img src = {logo} className="App-logo" alt="logo" /> 

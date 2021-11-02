@@ -1,9 +1,10 @@
-* {
+/* * {
   border: 1px solid pink;
   margin: 5px;
-}
+} */
 
 .App {
+  background: #F5F5F5; 
   text-align: center;
 }
 
@@ -41,10 +42,14 @@
 
 .headerLeftText {
   text-align: left;
+  padding: 30px;
+  margin: 10px;
 }
 
 .headerRightText {
   text-align: right;
+  padding: 30px;
+  margin: 10px;
 }
 
 .App-link {
