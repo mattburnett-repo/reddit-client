@@ -1,7 +1,6 @@
-// import { bindActionCreators, createStore } from "redux";
-// import rootReducer from "./reducers";
-// export default createStore(rootReducer);
-
+// *********************************************
+// *********************************************
+// *********************************************
 // a basic store can have actions / reducer / selectors all in one file, right?
 //      dispatchers come from the UI / other sys events?
 //      re-renders come from 'subscribe' in the UI?
@@ -40,11 +39,9 @@
 //      first, create renderFunction = () => return some react stuff;
 //      then, invoke renderFunction() for initial render
 //      then, trigger re-renders using store.subscribe(renderFunction);
-
-// *********************************************
-// *********************************************
 // *********************************************
 
+// *********************************************
 // !!!!!!!
 //      you have to add "type": "module",  to package.json in order to test run this in node, if you use 'import'
 // import { createStore } from 'redux';
@@ -78,52 +75,55 @@ const searchItems = (searchTerm) => {
 }
 
 // SUBSCRIBE HANDLERS
-const reactToStateChange = () => {
-    console.log('state changed again');
-}
+// const reactToStateChange = () => {
+//     console.log('state changed again');
+// }
 
 // reducer
 const initialState = {};
 const itemsReducer = (state = initialState, action) => {
     switch(action.type) {
         case 'items/getItems': 
-            console.log('items/getItems');
-            break;
+            // console.log('items/getItems');
+            return 'getItems';
         case 'items/getItemById': 
-            console.log('items/getItemById: ' + action.payload);
-            break;
+            // console.log('items/getItemById: ' + action.payload);
+            return action.payload;
         case 'items/filterItems': 
-            console.log('items/filterItems: ' + action.payload);
-            break;
+            // console.log('items/filterItems: ' + action.payload);
+            return action.payload;
         case 'items/searchItems': 
-            console.log('items/searchItems: ' + action.payload);
-            break;
+            // console.log('items/searchItems: ' + action.payload);
+            return action.payload;
         default: 
-            console.log('default case');
-            return state;
+            // console.log('default case');
+            // return state;
+            return 'default case';
     } // end switch
 }
 
 // adding "type": "module", to package.json makes this possible without export / module weirdness
-//      but you can instead use const { createStore } = require('redux');
+//      but you can instead use const { createStore } = require('redux'); look towards top of code...
 const store = createStore(itemsReducer);
 
 // let's do some tests!
-const unsubscribe = store.subscribe(reactToStateChange); // subscribe 'reactToStateChange' to store. it reads sort of backwards.
+//      *** moved testing over to __tests__/Store.test.js
 
-store.dispatch(getItems());
-store.dispatch(getItemById(2));
-console.log('unsubscribe here');
-unsubscribe();
-store.dispatch(filterItems('filter item'));
-store.dispatch(searchItems('search term'));
+// const unsubscribe = store.subscribe(reactToStateChange); // subscribe 'reactToStateChange' to store. it reads sort of backwards.
+
+// store.dispatch(getItems());
+// store.dispatch(getItemById(2));
+// console.log('unsubscribe here');
+// unsubscribe();
+// store.dispatch(filterItems('filter item'));
+// store.dispatch(searchItems('search term'));
 
 // SELECTORS
 //      how are these different from actions / action creators???
-// const selectItems(() => return Items);
+// const selectItems(() => return state.Items);
 // const selectItemById(() => ???);
 
-// export {store, selectItems, selectItemById };
+export { store, getItems, getItemById, filterItems, searchItems };
 
 // *********************************************
 // *********************************************
