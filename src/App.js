@@ -1,4 +1,3 @@
-// import logo from './ladderIcon_01.png';
 import logo from './logo.svg';
 import './App.css';
 
