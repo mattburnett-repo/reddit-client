@@ -1,20 +1,35 @@
 import { createSlice }  from '@reduxjs/toolkit';
 
+//  apiSandbox.js
+
+
 const options = {
     name: 'items',
-    initialState: [],   // needs some kind of definition / object instead of blank array?
-    reducers: {
-        loadData: (state,action) => {       // main async API call here?
+    initialState: {
+        items: [],
+        isLoading: false,
+        hasError: false
+    },   
+     // do we even need reduders? but what about export? itemSlice.reducers still works, or do we 
+     //     use itemSlice.extraReducers?
+     //     should be easy to sort out when we get there...
+    reducers: {     
+        testOutput: (state, action) => {       
+            console.log('items/testOutput');
             return {
                 type: 'items',
-                payload: 'loadData'
+                payload: 'test output'
             }
         },
     }, // end reducers
+    // extraReducers: builder => {             // async / thunk handling goes here
+    //     builder
+    //         .addCase();
+    //         // more addCase here
+    // },
 } // end options
 
 export const itemsSlice = createSlice(options);
-export const { getItems, getItemById, filterItems, searchTerms } = itemsSlice.actions;
+// export const { getItems, getItemById, filterItems, searchTerms } = itemsSlice.actions;
 
-// https://www.codecademy.com/paths/full-stack-engineer-career-path/tracks/fscp-redux/modules/refactoring-with-redux-toolkit/lessons/the-redux-toolkit/exercises/return-object-reducers
 export default itemsSlice.reducer;
