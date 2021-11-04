@@ -2,7 +2,7 @@
 
 const Item = () => {
     // return <p>a single item</p>;
-    return <a href="./item.js">go to a single item at this link.</a>
+    return <p><a href="./item.js">go to a single item from this link.</a></p>
 }
 
 export default Item;

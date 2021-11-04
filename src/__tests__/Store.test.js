@@ -1,4 +1,5 @@
 // import { render, screen } from '@testing-library/react';
+import { itemsSlice } from '../components/items/itemsSlice';
 import { store } from '../stateManagement/store';
 
 // sort out the async stuff / get Reddit API access working,
@@ -8,7 +9,7 @@ import { store } from '../stateManagement/store';
 describe('Basic store stub functionality', () => {
     it('returns test string from getItems', () => {
         // store.items.actions.getItems...
-        let result = store.dispatch('items/getItems');
+        let result = store.dispatch(itemsSlice.reducer.loadData);
         expect(result).toBe('???');
     });
     // it('gets an item by id', () => {

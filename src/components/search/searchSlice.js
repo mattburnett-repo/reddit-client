@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import  { createSlice }  from "@reduxjs/toolkit";
 
 const options = {
     name: 'search',
@@ -18,3 +18,6 @@ const options = {
 export const searchSlice = createSlice(options);
 export const { setSearch, getSearch } = searchSlice.actions;
 export default searchSlice.reducer;
+
+// console.log(searchSlice.actions);
+// console.log(searchSlice.reducer);
