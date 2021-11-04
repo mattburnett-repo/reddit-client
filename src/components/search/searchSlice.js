@@ -1,5 +1,7 @@
 import  { createSlice }  from "@reduxjs/toolkit";
 
+// https://www.reddit.com/dev/api#search
+
 const options = {
     name: 'search',
     initialState: '',
@@ -18,6 +20,3 @@ const options = {
 export const searchSlice = createSlice(options);
 export const { setSearch, getSearch } = searchSlice.actions;
 export default searchSlice.reducer;
-
-// console.log(searchSlice.actions);
-// console.log(searchSlice.reducer);
