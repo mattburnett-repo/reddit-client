@@ -5,3 +5,5 @@ const Search = () => {
 };
 
 export default Search;
+
+export const selectSearchTerms = state => state.searchTerms;

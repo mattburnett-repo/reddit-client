@@ -10,3 +10,5 @@ const Filter = () => {
 };
 
 export default Filter;
+
+export const selectFilterItems = (state) => state.filterItems;
