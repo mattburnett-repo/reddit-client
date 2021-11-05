@@ -34,9 +34,17 @@ Only generally-worded requirements are provided. All design / code / test is don
 
 ## Features
 * UI reacts responsively to changes in display size
+* App communicates with Reddit API using OAuth
 
 ---
 
 ### Future work
 TBD
 
+---
+
+### TO DO
+* "type": "module" in package.json
+* node-fetch is installed when testing code outside of npm start. do we need this when running within npm start?
+* add Router for links to specific listings
+* make sure env vars are set / picked up in/from index.js

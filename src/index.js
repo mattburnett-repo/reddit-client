@@ -6,10 +6,13 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './stateManagement/store.js';
 
-// TODO: make a note somewhere that we installed dotenv, and that we're using it elsewhere for process.env stuff
-// https://dev.to/francis04j/how-to-add-env-and-use-process-env-to-your-typescript-project-3d6b
-import * as dotenv from 'dotenv';
-dotenv.config();
+// TODO: tests only. remove later
+//  right now we only use these vars in ./src/components/items/apiSandbox.js
+//    but they will be used in itemsSlice.js, maybe elsewhere
+console.log('from ./index.js ->');
+console.log('process.env.REACT_APP_REDDIT_CLIENT_ID: '  + process.env.REACT_APP_REDDIT_CLIENT_ID);
+console.log('process.env.REACT_APP_REDDIT_USERNAME: ' + process.env.REACT_APP_REDDIT_USERNAME);
+console.log('process.env.REACT_APP_REDDIT_PASSWORD: ' + process.env.REACT_APP_REDDIT_PASSWORD);
 
 // import reportWebVitals from './reportWebVitals';
 
