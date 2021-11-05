@@ -6,6 +6,11 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './stateManagement/store.js';
 
+// TODO: make a note somewhere that we installed dotenv, and that we're using it elsewhere for process.env stuff
+// https://dev.to/francis04j/how-to-add-env-and-use-process-env-to-your-typescript-project-3d6b
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
