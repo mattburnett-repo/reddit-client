@@ -1,6 +1,9 @@
 import { createSlice }  from '@reduxjs/toolkit';
 
 //  apiSandbox.js
+// TODO: get keys from .env
+//          for whatever reason, process.env just won't work
+//              apiSandbox.js just won't do it
 
 
 const options = {
@@ -8,7 +11,11 @@ const options = {
     initialState: {
         items: [],
         isLoading: false,
-        hasError: false
+        hasError: false,
+        authToken: {
+            value: '',
+            expiresIn: 0
+        }
     },   
      // do we even need reduders? but what about export? itemSlice.reducers still works, or do we 
      //     use itemSlice.extraReducers?
