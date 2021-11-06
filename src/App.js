@@ -1,22 +1,22 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux'; // can also use useSelector()
+import { useDispatch } from 'react-redux'; 
 
 import Search from './components/search/Search.js';
 import Filter from './components/filter/Filter.js';
 import Listings from './components/listings/Listings.js';
 
-import { requestAuth } from './components/auth/authSlice.js';       // actions from the slice
-import { getListings } from './components/listings/listingsSlice';  // actions from the slice
+import { requestAuth } from './components/auth/authSlice.js';       
+import { getListings } from './components/listings/listingsSlice';  
 
 import logo from './logo.svg';
 import './App.css';
 
-function App() {    // Switch and Routers goe here?
+function App() {    // Switch and Routers go here?
   
   const dispatch = useDispatch();
 
   //  get auth token on first render / reload
-  //    TODO: this really needs some error checking, here and also in the actions
+  //    TODO: check if auth is expired before calling requestAuth()
   async function loadData() {
     await dispatch(requestAuth());
     await dispatch(getListings()); 

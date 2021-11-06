@@ -1,55 +1,71 @@
 import { createSlice, createAsyncThunk }  from '@reduxjs/toolkit';
 
-// import fetch from 'node-fetch'; // TODO: don't forget about type: module in package.json. Also note in README that node-fetch needs to be installed
-// import {URLSearchParams} from  'url';
+const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
 
-const getListing = createAsyncThunk( // maybe almost the same as getListings, but with different endpoint?
-    'listings/getListing',
-    async (id, thunkAPI) => {
-        // similar to getListings, but with a listing id this time
+// TODO: make better use of destructuring when recieving a payload
 
+export const getListing = createAsyncThunk(    
+    'listing/getListing',
+    async (id, { getState }) => {       // similar to getListings, but with a listing id this time
+        try {
+            const authToken = getState().auth.token.value;
+
+            const theBaseURL = `${REDDIT_OAUTH_URL}`;  
+            const theEndpoint = '/';                            // use 'id' passed as arg. this will involve Router / Links
+            const theURL = `${theBaseURL}${theEndpoint}`;
+    
+            const data = await fetch(theURL, { 
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${authToken}`,
+                    'User-Agent': 'reddit client app project',
+                }
+            });
+    
+            const json = await data.json();
+    
+            return json;
+        } catch(e) {
+            console.log(e);
+        }
     } // end async
 );
 
 const options = {
     name: 'listing',
     initialState: {
-        listing: [],
+        article: [],
         isLoading: false,
         hasError: false,
+        errorMsg: ''
     },   
-     // do we even need reducers? but what about export? itemSlice.reducers still works, or do we 
-     //     use itemSlice.extraReducers?
-     //     should be easy to sort out when we get there...
     reducers: {     
         testOutput: (state, action) => {       
             console.log('listing/testOutput');
-            return {
-                type: 'listing',
-                payload: 'test output'
-            }
         },
-    }, // end reducers
-    extraReducers: (builder) => {             // async / thunk handling goes here
+    }, 
+    extraReducers: (builder) => {             
         builder
-            // for getListing
             .addCase(getListing.pending, (state) => {
                 state.isLoading = true;
                 state.hasError = false;
+                state.errorMsg = '';
             })  
             .addCase(getListing.fulfilled, (state, action) => {
-                state.listings.currentListing = action.payload;   // TODO probably needs more detail. pull specific elements from listing object. This object is huge
+                state.article = action.payload;   // TODO map or something over the payload array, pull out min necessary data. id / title / picture, at min.
                 state.isLoading = false;
                 state.hasError =  false;
+                state.errorMsg = '';
             })  
-            .addCase(getListing.rejected, (state) => {
+            .addCase(getListing.rejected, (state, action) => {
                 state.isLoading = false;
                 state.hasError = true;
+                state.errorMsg = action.error;
             })  
     }, // end extraReducers
 } // end options
 
 export const listingSlice = createSlice(options);
-// export const { testOutput, requestAuth, getListings } = itemsSlice.actions;
+export const { testOutput } = listingSlice.actions;
 
 export default listingSlice.reducer;

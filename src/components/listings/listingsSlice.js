@@ -1,40 +1,46 @@
 import { createSlice, createAsyncThunk }  from '@reduxjs/toolkit';
 
-// import {URLSearchParams} from  'url';
+const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
+
+// TODO: make better use of destructuring when recieving a payload
 
 export const getListings = createAsyncThunk(
     'listings/getListings',
-    async (dummyArg, { getState }) => {                                          
-        const authToken = getState().auth.token.value;
+    async (dummyArg, { getState }) => {                      
+        try {
+            const authToken = getState().auth.token.value;
 
-        const theBaseURL = 'https://oauth.reddit.com';  
-        // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these endpoints:
-        //      best / controversial / hot / new / random / rising / top
-        const theEndpoint = '/';                            // reddit defaults to 'best'? control this with Router / Links
-        const theURL = `${theBaseURL}${theEndpoint}`;
-
-        const data = await fetch(theURL, { 
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${authToken}`,
-                'User-Agent': 'reddit client app project',
-            }
-        });
-
-        const json = await data.json();
-
-        return json.data.children; // return an array of the listings 
-    }
+            const theBaseURL = `${REDDIT_OAUTH_URL}`;  
+            // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these endpoints:
+            //      best / controversial / hot / new / random / rising / top
+            const theEndpoint = '/';                            // reddit defaults to 'best'? control this with Router / Links
+            const theURL = `${theBaseURL}${theEndpoint}`;
+    
+            const data = await fetch(theURL, { 
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${authToken}`,
+                    'User-Agent': 'reddit client app project',
+                }
+            });
+    
+            const json = await data.json();
+    
+            return json.data.children; // return an array of the listings/articles 
+        } catch(e) {
+            console.log(e);
+        }  // end try/catch            
+    } // end async
 );
 
-// const searchListings = async () => {
+// export const searchListings = async () => {
 //     // https://alpscode.com/blog/how-to-use-reddit-api/  'playing with the api' section
 // }
 
 const options = {
     name: 'listings',
     initialState: {
-        listings: [],
+        articles: [],
         isLoading: false,
         hasError: false,
         errorMsg: '',
@@ -45,18 +51,19 @@ const options = {
         testOutput: (state, action) => {       
             console.log('listings/testOutput');
         },
-    }, // end reducers
-    extraReducers: (builder) => {             // async / thunk handling goes here
+    }, 
+    extraReducers: (builder) => {             
         builder
-            // for getListings
             .addCase(getListings.pending, (state) => {
                 state.isLoading = true;
                 state.hasError = false;
+                state.errorMsg = '';
             })  
             .addCase(getListings.fulfilled, (state, action) => {
-                state.listings = action.payload;   // TODO map or something over the payload array, pull out min necessary data. this thing is huge
+                state.articles = action.payload;   // TODO map or something over the payload array, pull out min necessary data. id / title / picture, at min.
                 state.isLoading = false;
                 state.hasError =  false;
+                state.errorMsg = '';
             })  
             .addCase(getListings.rejected, (state, action) => {
                 state.isLoading = false;

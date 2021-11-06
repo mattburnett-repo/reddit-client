@@ -1,7 +1,7 @@
 // I think the requirements mean by "Users can filter the data based on categories that are predefined" these categories:
 //      best / controversial / hot / new / random / rising / top
 
-// TODO: should be function, not const?
+//  should be function, not const?
 
 const Filter = () => {
     return (
@@ -19,5 +19,3 @@ const Filter = () => {
 };
 
 export default Filter;
-
-// export const selectFilterItems = (state) => state.filterItems;

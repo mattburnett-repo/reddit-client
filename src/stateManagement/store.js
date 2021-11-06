@@ -1,4 +1,3 @@
-// *********************************************
 // !!!!!!!
 //  you have to add "type": "module",  to package.json in order to test run this in node (zB node store.js), 
 //      if you use import { createStore } from 'redux';
@@ -13,10 +12,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '../components/auth/authSlice.js';  
 import listingsReducer from '../components/listings/listingsSlice.js';      
 import listingReducer from '../components/listing/listingSlice.js';    
-// import searchReducer from '../components/search/searchSlice.js';    // maybe don't need
+// import searchReducer from '../components/search/searchSlice.js';    
 
 // I don't like bulky / messy arguments, so...
-const reducersObj = () => {
+function rootReducer() {
     return {
         reducer: {
             auth: authReducer,
@@ -26,11 +25,10 @@ const reducersObj = () => {
     }
 }
 // ... it's basically a createStore() / combineReducers() substitute. woo.
-const store = configureStore(reducersObj());
+const store = configureStore(rootReducer());
 
 console.log(store);
 
 // EXPORT
 export default store;
 
-// *********************************************
