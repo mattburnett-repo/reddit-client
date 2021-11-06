@@ -5,11 +5,6 @@ const REDDIT_USERNAME = process.env.REACT_APP_REDDIT_USERNAME;
 const REDDIT_PASSWORD = process.env.REACT_APP_REDDIT_PASSWORD;
 const REDDIT_AUTH_REQUEST_URL = process.env.REACT_APP_REDDIT_AUTH_REQUEST_URL;
 
-// TODO: set auth.token.value / auth.token.expiresIn in state/slice/extraReducers(fulfilled)
-//          expires usually after one hour / 3600 seconds
-//          calculate timeToLive, set value to expire time.
-//          maybe use also a isExpired boolean
-
 export const requestAuth = createAsyncThunk(
     'auth/requestAuth',
     async () => {
@@ -45,7 +40,8 @@ const options = {
         token: {                
             value: '',
             expiresIn: 0,
-            isExpired: false
+            expireStart: 0,
+            expireEnd: 0
         },
         isLoading: false,
         hasError: false,
@@ -66,6 +62,8 @@ const options = {
             .addCase(requestAuth.fulfilled, (state, action) => {
                 state.token.value = action.payload.access_token;      
                 state.token.expiresIn = action.payload.expires_in;
+                state.token.expireStart = Math.round(Date.now() / 1000);
+                state.token.expireEnd = Math.round(Date.now() / 1000) + action.payload.expires_in;
                 state.isLoading = false;
                 state.hasError =  false;
                 state.errorMsg = '';

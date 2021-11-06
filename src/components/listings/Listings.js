@@ -1,6 +1,6 @@
 // import Listing from '../listing/listing.js';
 
-// take input array from listingsSlice and present minimally useful infos here
+// iterate over input array from listingsSlice and present minimally useful infos here
 // call Listing for specific article display
 
 const Listings = () => {

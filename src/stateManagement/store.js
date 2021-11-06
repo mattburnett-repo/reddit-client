@@ -14,7 +14,7 @@ import listingsReducer from '../components/listings/listingsSlice.js';
 import listingReducer from '../components/listing/listingSlice.js';    
 // import searchReducer from '../components/search/searchSlice.js';    
 
-// I don't like bulky / messy arguments, so...
+// I don't like bulky / messy args, so...
 function rootReducer() {
     return {
         reducer: {

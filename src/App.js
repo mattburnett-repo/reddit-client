@@ -15,8 +15,12 @@ function App() {    // Switch and Routers go here?
   
   const dispatch = useDispatch();
 
-  //  get auth token on first render / reload
-  //    TODO: check if auth is expired before calling requestAuth()
+  // TODO: this should check if auth is expired before dispatch(requestAuth())
+  //    can't get it to work. more state access issues
+  //      while researching this, came across references to Context. maybe Context is how to do this.
+  //    related to login / auth processes. keep an eye open for this later in the course.
+  //    trying to create production-ready code for what is really just a learning project...
+  
   async function loadData() {
     await dispatch(requestAuth());
     await dispatch(getListings()); 
