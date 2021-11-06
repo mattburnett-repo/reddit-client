@@ -1,4 +1,4 @@
-import Item from '../item/Item.js';
+import Item from '../listing/listing.js';
 
 const Items = () => {
     return (

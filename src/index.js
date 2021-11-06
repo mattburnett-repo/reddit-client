@@ -6,14 +6,6 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './stateManagement/store.js';
 
-// TODO: tests only. remove later
-//  right now we only use these vars in ./src/components/items/apiSandbox.js
-//    but they will be used in itemsSlice.js, maybe elsewhere
-console.log('from ./index.js ->');
-console.log('process.env.REACT_APP_REDDIT_CLIENT_ID: '  + process.env.REACT_APP_REDDIT_CLIENT_ID);
-console.log('process.env.REACT_APP_REDDIT_USERNAME: ' + process.env.REACT_APP_REDDIT_USERNAME);
-console.log('process.env.REACT_APP_REDDIT_PASSWORD: ' + process.env.REACT_APP_REDDIT_PASSWORD);
-
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

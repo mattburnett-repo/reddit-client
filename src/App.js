@@ -1,11 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux'; // can also use useSelector()
 
 import Search from './components/search/Search.js';
 import Filter from './components/filter/Filter.js';
-import Items from './components/items/Items.js';
+import Listings from './components/listings/Listings.js';
 
-function App() {
+import { requestAuth } from './components/auth/authSlice.js';       // actions from the slice
+import { getListings } from './components/listings/listingsSlice';  // actions from the slice
+
+import logo from './logo.svg';
+import './App.css';
+
+function App() {    // Switch and Routers goe here?
+  
+  const dispatch = useDispatch();
+
+  //  get auth token on first render / reload
+  //    TODO: this really needs some error checking, here and also in the actions
+  async function loadData() {
+    await dispatch(requestAuth());
+    await dispatch(getListings()); 
+  }
+
+  useEffect(() => {
+    loadData();
+  });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,8 +39,8 @@ function App() {
         <Search className="search"/>
       </section>
 
-      <section className="items">
-        <Items />
+      <section className="listings">
+        <Listings />
       </section>
     </div>
   );

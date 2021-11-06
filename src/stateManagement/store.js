@@ -8,27 +8,27 @@
 //      const pkg = require('@reduxjs/toolkit');
 //      const { createAsyncThunk } = pkg;
 
-// IMPORT
 import { configureStore } from '@reduxjs/toolkit';
 
-import itemsReducer from '../components/items/itemsSlice.js';      
-import filterReducer from '../components/filter/filterSlice.js';
-import searchReducer from '../components/search/searchSlice.js';
+import authReducer from '../components/auth/authSlice.js';  
+import listingsReducer from '../components/listings/listingsSlice.js';      
+import listingReducer from '../components/listing/listingSlice.js';    
+// import searchReducer from '../components/search/searchSlice.js';    // maybe don't need
 
 // I don't like bulky / messy arguments, so...
 const reducersObj = () => {
     return {
         reducer: {
-            items: itemsReducer,
-            filter: filterReducer,
-            search: searchReducer
+            auth: authReducer,
+            listings: listingsReducer,
+            listing: listingReducer
         }    
     }
 }
 // ... it's basically a createStore() / combineReducers() substitute. woo.
 const store = configureStore(reducersObj());
 
-// console.log(store);
+console.log(store);
 
 // EXPORT
 export default store;
