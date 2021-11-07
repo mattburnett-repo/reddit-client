@@ -3,7 +3,7 @@ import { selectListings, selectIsLoading } from '../stateManagement/listingsSlic
 
 import Listing from './Listing';
 
-const Listings = () => {
+export default function Listings() { 
     const articleListings = useSelector(selectListings);
     const isLoading = useSelector(selectIsLoading); 
 
@@ -27,5 +27,3 @@ const Listings = () => {
         );        
     } // end if
 };
-
-export default Listings;

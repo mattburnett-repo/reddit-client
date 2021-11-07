@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk }  from '@reduxjs/toolkit';
 
 const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
 
-// TODO: make better use of destructuring when recieving a payload
+// TODO: make better use of destructuring when receiving a payload
 
 export const getListings = createAsyncThunk(
     'listings/getListings',

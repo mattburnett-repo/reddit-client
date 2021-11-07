@@ -1,12 +1,11 @@
 // I think the requirements mean by "Users can filter the data based on categories that are predefined" these categories:
 //      best / controversial / hot / new / random / rising / top
 
-//  should be function, not const?
-
-const Filter = () => {
+export default function Filter() {
     return (
             <div>
-                Filter by:&nbsp;
+                {/* Filter by:&nbsp; Switch / Router goes here? */}
+                {/* set theEndpoint in listingsSlice before sending get request */}
                 <a href="alert('best')">best</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="alert('controversial')">controversial</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="alert('hot')">hot</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -17,5 +16,3 @@ const Filter = () => {
            </div>
     );
 };
-
-export default Filter;
