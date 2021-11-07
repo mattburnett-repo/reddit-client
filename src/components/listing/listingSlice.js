@@ -66,6 +66,7 @@ const options = {
 } // end options
 
 export const listingSlice = createSlice(options);
+export const selectArticle = (state) => state.article;
 export const { testOutput } = listingSlice.actions;
 
 export default listingSlice.reducer;

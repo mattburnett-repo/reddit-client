@@ -46,12 +46,14 @@
   text-align: left;
   padding: 30px;
   margin: 10px;
+  font-size: 6rem;
 }
 
 .headerRightText {
   text-align: right;
   padding: 30px;
   margin: 10px;
+  font-size: 6rem;
 }
 
 .App-link {
@@ -75,6 +77,64 @@ section {
 
   width: 90%;
   margin: auto;
+}
+
+.articles-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 215px);
+  grid-gap: 16px;
+  justify-content: center;
+  background-color: #f2f2f2;
+  padding-bottom: 48px;
+}
+
+.article-container {
+  cursor: pointer;
+  border-radius: 6px;
+  border: solid 1px #141c3a;
+  background-color: #ffffff;
+  color: #141c3a;
+  padding: 0;
+  text-align: start;
+  width: 215px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-content-container {
+  padding: 9px 16px 31px 16px;
+}
+
+.article-title {
+  font-weight: bold;
+  margin: 0px;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.article-image {
+  width: 100%;
+  display: block;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  grid-column-end: 6;
+  grid-column-start: 1;
+  margin: 0;
+  margin-top: 32px;
+  margin-bottom: 8px;
 }
 
 .filterSearch {

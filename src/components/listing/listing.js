@@ -1,8 +1,13 @@
 
-const Listing = () => {
-    // return <p><a href="./item.js">go to a single listing from this link.</a></p>;
-    // TODO: change <a> to button and onClick to test items.testOutput
-    return <p>details for specific listing / article go here</p>;
+export default function Listing({ article }) {
+    return (
+        <button key={article.id} className='article-container'>
+            <img src={article.thumbnail} alt='' className='article-image' />
+            <div className='article-content-container'>
+                <h3 className='article-title'>
+                <a href={article.url_overridden_by_dest}>{article.title}</a>
+                </h3>
+            </div>
+        </button>
+    );
 }
-
-export default Listing;

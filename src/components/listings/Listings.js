@@ -1,16 +1,20 @@
-// import Listing from '../listing/listing.js';
+import { useSelector } from 'react-redux';
+import { selectListings } from './listingsSlice';
 
-// iterate over input array from listingsSlice and present minimally useful infos here
-// call Listing for specific article display
+import Listing from '../listing/Listing';
 
 const Listings = () => {
+    const articleListings = useSelector(selectListings);
+
     return (
-        <>
-            <h3>Listings returned from api call</h3>
-            <p><a href="./listing.js">go to a single listing from this link</a></p>
-            <p><a href="./listing.js">go to a single listing from this link</a></p>
-            <p><a href="./listing.js">go to a single listing from this link</a></p>
-        </>
+        <section className='articles-container'>
+            <h2 className='section-title'>All Articles</h2>
+            {articleListings.map((article) => (
+                <div key={article.id}>     
+                    <Listing article={article.data}/>
+                </div>
+            ))}
+        </section>
     );
 };
 

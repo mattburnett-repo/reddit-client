@@ -8,7 +8,7 @@ export const getListings = createAsyncThunk(
     'listings/getListings',
     async (dummyArg, { getState }) => {                      
         try {
-            const authToken = getState().auth.token.value;
+            const authToken = getState().auth.token.value; // TODO: now there is a selector in authSlice to get this
 
             const theBaseURL = `${REDDIT_OAUTH_URL}`;  
             // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these endpoints:
@@ -60,7 +60,7 @@ const options = {
                 state.errorMsg = '';
             })  
             .addCase(getListings.fulfilled, (state, action) => {
-                state.articles = action.payload;   // TODO map or something over the payload array, pull out min necessary data. id / title / picture, at min.
+                state.articles = action.payload;
                 state.isLoading = false;
                 state.hasError =  false;
                 state.errorMsg = '';
@@ -72,6 +72,9 @@ const options = {
             })  
     }, // end extraReducers
 } // end options
+
+export const selectListings = (state) => state.listings.articles;
+export const selectIsLoading = (state) => state.listings.isLoading;
 
 export const listingsSlice = createSlice(options);
 export const { testOutput } = listingsSlice.actions;

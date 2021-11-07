@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 
 import Search from './components/search/Search.js';
 import Filter from './components/filter/Filter.js';
 import Listings from './components/listings/Listings.js';
 
 import { requestAuth } from './components/auth/authSlice.js';       
-import { getListings } from './components/listings/listingsSlice';  
+import { getListings, selectIsLoading } from './components/listings/listingsSlice';  
 
 import logo from './logo.svg';
 import './App.css';
@@ -14,21 +14,22 @@ import './App.css';
 function App() {    // Switch and Routers go here?
   
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
   // TODO: this should check if auth is expired before dispatch(requestAuth())
-  //    can't get it to work. more state access issues
-  //      while researching this, came across references to Context. maybe Context is how to do this.
-  //    related to login / auth processes. keep an eye open for this later in the course.
-  //    trying to create production-ready code for what is really just a learning project...
-  
-  async function loadData() {
+  //    useSelector(selectAuthIsExpired)
+  //      but where to set it?
+
+  // TODO: implement 'isLoading' message/display
+
+  async function loadData() { // add isLoading test/display
     await dispatch(requestAuth());
     await dispatch(getListings()); 
   }
 
   useEffect(() => {
     loadData();
-  });
+  }, []);
 
   return (
     <div className="App">
