@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectListings, selectIsLoading } from './listingsSlice';
+import { selectListings, selectIsLoading } from '../stateManagement/listingsSlice';
 
-import Listing from '../listing/Listing';
+import Listing from './Listing';
 
 const Listings = () => {
     const articleListings = useSelector(selectListings);

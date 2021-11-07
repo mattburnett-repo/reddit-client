@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'; 
 
-import Search from './components/search/Search.js';
-import Filter from './components/filter/Filter.js';
-import Listings from './components/listings/Listings.js';
+import Search from './components/Search.js';
+import Filter from './components/Filter.js';
+import Listings from './components/Listings.js';
 
-import { requestAuth } from './components/auth/authSlice.js';       
-import { getListings } from './components/listings/listingsSlice';  
+import { requestAuth } from './stateManagement/authSlice.js';       
+import { getListings } from './stateManagement/listingsSlice';  
 
 import logo from './logo.svg';
 import './App.css';
 
-function App() {    // Switch and Routers go here?
+function App() {    
   const dispatch = useDispatch();
 
   // TODO: this should check if auth is expired before dispatch(requestAuth())
@@ -24,9 +24,7 @@ function App() {    // Switch and Routers go here?
   //   console.log('App.loadData(): authTokenIsExpired');
   // } 
 
-  // TODO: implement 'isLoading' message/display
-
-  async function loadData() { // add isLoading test/display and authIsExpired test
+  async function loadData() { // add authIsExpired test
     await dispatch(requestAuth());
     await dispatch(getListings()); 
   }
@@ -35,7 +33,7 @@ function App() {    // Switch and Routers go here?
     loadData();
   }, []);
 
-  return (
+  return (                                                // Switch and Routers go here?
     <div className="App">
       <header className="App-header">
         <div className="headerLeftText">REDDIT</div> 

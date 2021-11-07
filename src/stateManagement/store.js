@@ -9,9 +9,9 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 
-import authReducer from '../components/auth/authSlice.js';  
-import listingsReducer from '../components/listings/listingsSlice.js';      
-import listingReducer from '../components/listing/listingSlice.js';    
+import authReducer from './authSlice.js';  
+import listingsReducer from './listingsSlice.js';      
+import listingReducer from './listingSlice.js';    
 // import searchReducer from '../components/search/searchSlice.js';    
 
 // I don't like bulky / messy args, so...
