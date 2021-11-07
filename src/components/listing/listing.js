@@ -1,7 +1,9 @@
 
-export default function Listing({ article }) {
+export default function Listing(props) {
+    const { key, article } = props;
+
     return (
-        <button key={article.id} className='article-container'>
+        <button key={key} className='article-container'>
             <img src={article.thumbnail} alt='' className='article-image' />
             <div className='article-content-container'>
                 <h3 className='article-title'>

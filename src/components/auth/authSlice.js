@@ -79,4 +79,6 @@ const options = {
 export const authSlice = createSlice(options);
 export const { testOutput } = authSlice.actions;
 export const selectAuthToken = (state) => state.token.value;
+// export const selectExpireEnd = (state) => state.expireIn;
+
 export default authSlice.reducer;

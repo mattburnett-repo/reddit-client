@@ -6,9 +6,9 @@ const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
 
 export const getListings = createAsyncThunk(
     'listings/getListings',
-    async (dummyArg, { getState }) => {                      
+    async (dummyArg, { getState }) => {                       
         try {
-            const authToken = getState().auth.token.value; // TODO: now there is a selector in authSlice to get this
+            const authToken = getState().auth.token.value;
 
             const theBaseURL = `${REDDIT_OAUTH_URL}`;  
             // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these endpoints:
