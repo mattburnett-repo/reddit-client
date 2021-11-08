@@ -10,13 +10,14 @@ export default function Listings() {
     if(isLoading) {
         return (
             <section className='articles-container'>
-                <h2 className='section-title'>... loading</h2>
+                <div className='section-title'>... loading</div>
             </section>
         );
     } else {
         return (
             <section className='articles-container'>
-                <h2 className='section-title'>All Articles</h2>
+                {/* TODO: show pathname after 'All Articles' */}
+                <h2 className='section-title'>All Articles</h2> 
                 {articleListings.map((article, index) => (
                     <div key={index}>     
                         <Listing key={article.id} article={article.data}/>

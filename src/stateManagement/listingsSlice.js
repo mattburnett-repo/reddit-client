@@ -3,18 +3,19 @@ import { createSlice, createAsyncThunk }  from '@reduxjs/toolkit';
 const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
 
 // TODO: make better use of destructuring when receiving a payload
+// TODO: add pathName to state.pathName
 
 export const getListings = createAsyncThunk(
     'listings/getListings',
-    async (dummyArg, { getState }) => {                       
+    async (pathname='', { getState }) => {  
         try {
             const authToken = getState().auth.token.value;
 
             const theBaseURL = `${REDDIT_OAUTH_URL}`;  
-            // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these endpoints:
+            // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these pathNames:
             //      best / controversial / hot / new / random / rising / top
-            const theEndpoint = '/';                            // reddit defaults to 'best'? control this with Router / Links
-            const theURL = `${theBaseURL}${theEndpoint}`;
+            const pathName = '/' + pathname;
+            const theURL = `${theBaseURL}${pathName}`;
     
             const data = await fetch(theURL, { 
                 method: 'GET',
@@ -44,7 +45,7 @@ const options = {
         isLoading: false,
         hasError: false,
         errorMsg: '',
-        filter: '/',                // best / controversial / hot / new / random / rising / top
+        // pathName: '/',                // best / controversial / hot / new / random / rising / top
         searchTerm: '',             // not sure if this should have its own slice...
     },   
     reducers: {     
