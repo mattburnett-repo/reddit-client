@@ -11,23 +11,18 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import authReducer from './authSlice.js';  
 import listingsReducer from './listingsSlice.js';      
-import listingReducer from './listingSlice.js';    
-// import searchReducer from '../components/search/searchSlice.js';    
 
 // I don't like bulky / messy args, so...
 function rootReducer() {
     return {
         reducer: {
             auth: authReducer,
-            listings: listingsReducer,
-            listing: listingReducer
+            listings: listingsReducer
         }    
     }
 }
 // ... it's basically a createStore() / combineReducers() substitute. woo.
 const store = configureStore(rootReducer());
-
-console.log(store);
 
 // EXPORT
 export default store;

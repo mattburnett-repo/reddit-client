@@ -8,7 +8,7 @@ export default function Listing(props) {
             <img src={article.thumbnail} alt='' className='article-image' />
             <div className='article-content-container'>
                 <h3 className='article-title'>
-                <a href={article.url_overridden_by_dest}>{article.title}</a>
+                    <a href={article.url_overridden_by_dest}>{article.title}</a>
                 </h3>
             </div>
         </button>

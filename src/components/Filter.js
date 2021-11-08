@@ -4,8 +4,8 @@
 //  tried using Router / Link / Route, but all we really need to do is change the state (meaning: dispatch(getListings(someValue) )
 //      Listings component already useSelector's itself to monitor changes to state, so calling Route / component is kind of pointless
 //      all we really want to do is click on a filter item (ie 'controversial'), update the state, and show the new listings.
-import { useDispatch } from 'react-redux';
 
+import { useDispatch } from 'react-redux';
 import { getListings } from '../stateManagement/listingsSlice'
 
 export default function Filter() {

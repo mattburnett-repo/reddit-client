@@ -1,5 +1,6 @@
 // TODO: input doesn't resize / get smaller at extreme screen size reduction
 // TODO: search results don't have images / useable links
+// TODO: search as 'subreddit_search' pathname. not sure this is the best endpoint
 
 import { useDispatch } from "react-redux";
 import { getListings } from '../stateManagement/listingsSlice';
