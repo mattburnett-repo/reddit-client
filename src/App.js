@@ -32,7 +32,7 @@ export default function App() {
       </header>
       
       <section className="filterSearch">  
-        <Filter className="filter"/>    {/* Switch and Routers go here? */}
+        <Filter className="filter"/> 
         <Search className="search"/>
       </section>
 
