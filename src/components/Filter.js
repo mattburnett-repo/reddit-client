@@ -1,5 +1,5 @@
 // I think the requirements mean by "Users can filter the data based on categories that are predefined" these categories:
-//      best / controversial / hot / new / random / rising / top
+//      best / controversial / hot / new / rising / top
 
 //  tried using Router / Link / Route, but all we really need to do is change the state (meaning: dispatch(getListings(someValue) )
 //      Listings component already useSelector's itself to monitor changes to state, so calling Route / component is kind of pointless

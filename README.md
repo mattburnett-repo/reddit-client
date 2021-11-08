@@ -33,8 +33,10 @@ Only generally-worded requirements are provided. All design / code / test is don
 ---
 
 ## Features
-* UI reacts responsively to changes in display size
+* App retrieves authorization_token from API
 * App communicates with Reddit API using OAuth
+* Users can retriee listings based on filters (best / controversial / hot / new / rising / top)
+* Users can search listings
 
 ---
 
@@ -44,7 +46,6 @@ TBD
 ---
 
 ### TO DO
-* "type": "module" in package.json
-* node-fetch is installed when testing code outside of npm start. do we need this when running within npm start?
-* add Router for links to specific listings
-* make sure env vars are set / picked up in/from index.js
+* UI reacts responsively to changes in display size
+  * Using grid layout, and I'd like to keep that, instead of throwing everything into Flexbox
+* TESTS

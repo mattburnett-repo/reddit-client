@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk }  from '@reduxjs/toolkit';
 const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
 
 // TODO: make better use of destructuring when receiving a payload
-// TODO: add pathName to state.pathName
+// TODO: add pathName to state.pathName so that we can display it in Listings.js
 
 export const getListings = createAsyncThunk(
     'listings/getListings',
