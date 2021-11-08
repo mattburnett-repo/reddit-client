@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, []); // TODO: Fix 'React Hook ... has a missing dependency' problem/waring
 
   return (                                                
     <div className="App">

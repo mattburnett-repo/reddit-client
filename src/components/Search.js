@@ -1,5 +1,4 @@
 // TODO: input doesn't resize / get smaller at extreme screen size reduction
-
 // TODO: search results don't have images / useable links
 
 import { useDispatch } from "react-redux";

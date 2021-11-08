@@ -14,6 +14,7 @@ export const getListings = createAsyncThunk(
             const theBaseURL = `${REDDIT_OAUTH_URL}`;  
             // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these pathNames:
             //      best / controversial / hot / new / random / rising / top
+            // pathName also accepts search term/s
             const pathName = '/' + pathname;
             const theURL = `${theBaseURL}${pathName}`;
     
@@ -34,10 +35,6 @@ export const getListings = createAsyncThunk(
     } // end async
 );
 
-// export const searchListings = async () => {
-//     // https://alpscode.com/blog/how-to-use-reddit-api/  'playing with the api' section
-// }
-
 const options = {
     name: 'listings',
     initialState: {
@@ -45,8 +42,8 @@ const options = {
         isLoading: false,
         hasError: false,
         errorMsg: '',
-        // pathName: '/',                // best / controversial / hot / new / random / rising / top
-        searchTerm: '',             // not sure if this should have its own slice...
+        pathName: '/',              // best / controversial / hot / new / random / rising / top
+        searchTerm: '',             // ends up in pathName already
     },   
     reducers: {     
         testOutput: (state, action) => {       

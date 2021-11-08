@@ -10,13 +10,14 @@ export default function Listings() {
     if(isLoading) {
         return (
             <section className='articles-container'>
-                <div className='section-title'>... loading</div>
+                {/* TODO: add an isLoading animation thing here */}
+                <div className='section-title'>... loading</div>  
             </section>
         );
     } else {
         return (
             <section className='articles-container'>
-                {/* TODO: show pathname after 'All Articles' */}
+                {/* TODO: show pathname search term after 'All Articles' */}
                 <h2 className='section-title'>All Articles</h2> 
                 {articleListings.map((article, index) => (
                     <div key={index}>     

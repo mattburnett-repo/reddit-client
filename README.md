@@ -49,3 +49,4 @@ TBD
 * UI reacts responsively to changes in display size
   * Using grid layout, and I'd like to keep that, instead of throwing everything into Flexbox
 * TESTS
+* better / more comprehensive error handling. mostly just display something and let user go back
