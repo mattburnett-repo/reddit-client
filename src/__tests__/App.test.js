@@ -30,7 +30,7 @@ import Search from '../components/Search';
 import Listings from '../components/Listings';
 
 // AppDummy is a very simple, start-of-process smokescreen test
-//      basically, does the App invoke the components shown on the wireframe?
+//      it asks, does the App invoke the components shown on the wireframe?
 //      using AppDummy because App itself is complicated
 //          rendered in index.js, surrounded by Provider tag with store prop
 //          look at comm'd out code for ideas on how to render App correctly for these tests
@@ -40,15 +40,19 @@ describe('<AppDummy />', () => {
         let wrapper;
 
         beforeEach(() => {
-            wrapper = shallow(<AppDummy />);        
+            wrapper = shallow(<AppDummy />);        // use shallow from Enzyme
             // figure out how to correctly render actual App component
             //      Get index.js to render App and return the render to wrapper
             // require("../index.js");
-            // wrapper = shallow(<React.StrictMode><Provider store={store}><App /></ Provider></React.StrictMode>);
+            // wrapper = shallow(<Provider store={store}><App /></Provider>);
         });
         afterEach(() => {
             wrapper.unmount();
         });
+        // it("have specific text in the header", () => {
+        //     render(<AppDummy />);
+        //     expect(screen.getByText('REDDIT')).toBeInTheDocument();
+        // });
 
         it("Filter component", () => {
             expect(wrapper.find(Filter).length).toBe(1);
