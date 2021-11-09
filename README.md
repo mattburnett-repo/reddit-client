@@ -50,15 +50,6 @@ TBD
   * Using grid layout, and I'd like to keep that, instead of throwing everything into Flexbox
     * Will need to come back to this later. I have no more patience for this project.
 * TESTS
-  * testing is overwhelming. available informaton doesn't make sense.
-    * https://redux.js.org/usage/writing-tests
-    * https://hackernoon.com/redux-testing-step-by-step-a-simple-methodology-for-testing-business-logic-8901670756ce
-    * https://hacks.mozilla.org/2018/04/testing-strategies-for-react-and-redux/
-    * https://www.robinwieruch.de/react-connected-component-test
-    * https://www.youtube.com/watch?v=h7ukDItVN_o
-    * https://www.willowtreeapps.com/craft/best-practices-for-unit-testing-with-a-react-redux-approach
-  * I don't know what to do, where to start, how to proceed.
-    * maybe start here and go over again
-      * https://www.codecademy.com/paths/full-stack-engineer-career-path/tracks/fscp-test-driven-development-with-javascript/modules/fecp-introduction-tdd-fundamentals/informationals/fecp-introduction-tdd-fundamentals
-      * https://www.codecademy.com/paths/full-stack-engineer-career-path/tracks/fscp-redux/modules/fecp-testing-redux/articles/fecp-external-writing-tests-in-redux
-* better / more comprehensive error handling. mostly just display something and let user go back
+  * Project requirements state to test components. Maybe they just mean the display stuff, and not everything (ie reducers/slices/etc)?
+    * Maybe testing is just to confirm that what's on the wireframe is in the code, and basic API (mock?) call/s
+* Better / more comprehensive error handling. mostly just display something and let user go back
