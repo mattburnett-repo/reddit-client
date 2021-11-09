@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk }  from '@reduxjs/toolkit';
 const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
 
 // TODO: make better use of destructuring when receiving a payload
-// TODO: add pathName to state.pathName so that we can display it in Listings.js
 
 export const getListings = createAsyncThunk(
     'listings/getListings',
@@ -28,7 +27,13 @@ export const getListings = createAsyncThunk(
     
             const json = await data.json();
     
-            return json.data.children; // return an array of the listings/articles 
+            return json.data.children;  // return an array of the listings/articles 
+
+            // TODO: add pathName to state.pathName so that we can display it in Listings.js
+            // return json; // get this to work in fulfilled
+
+            // return json + {pathName: 'pathName set in action creator'};
+
         } catch(e) {
             console.log(e);
         }  // end try/catch            
@@ -59,6 +64,8 @@ const options = {
             })  
             .addCase(getListings.fulfilled, (state, action) => {
                 state.articles = action.payload;
+                // state.articles = action.payload.data.children; 
+                // state.pathName = action.payload.pathName;
                 state.isLoading = false;
                 state.hasError =  false;
                 state.errorMsg = '';

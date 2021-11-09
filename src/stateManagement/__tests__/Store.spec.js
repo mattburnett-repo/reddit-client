@@ -1,6 +1,6 @@
 // import { render, screen } from '@testing-library/react';
 import { itemsSlice } from '../components/items/itemsSlice';
-import { store } from '../stateManagement/store';
+import { store } from '../store';
 
 // sort out the async stuff / get Reddit API access working,
 //      then go back over Redux testing infos and build some
