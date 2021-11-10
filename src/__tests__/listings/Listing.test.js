@@ -1,7 +1,5 @@
 // Write unit tests for your components using Jest and Enzyme
-// ... cannot read properties of undefined reading 'getState') ...
 
-// https://www.andreasreiterer.at/test-presentational-components-jest/
 import { shallow } from 'enzyme';
 import Listing from '../../components/listing/Listing';
 

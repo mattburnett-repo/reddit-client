@@ -1,7 +1,9 @@
 // all the logic here, then call display 
 
-import CommentList from "../../components/comments/CommentList"
+import CommentList from "../../components/comments/CommentsList"
 
+
+// TODO: mock data from json pull?
 export default function Comments() {
     return (
         <div>

@@ -1,12 +1,7 @@
-// Write unit tests for your components using Jest and Enzyme
-// ... cannot read properties of undefined reading 'getState') ...
-
-// https://www.andreasreiterer.at/test-presentational-components-jest/
-
 import { shallow } from 'enzyme';
 
-import Comments from '../../features/comments/Comments';
-import CommentList from '../../components/comments/CommentList';
+// import Comments from '../../features/comments/Comments';
+import CommentsList from '../../components/comments/CommentsList';
 
 // const mockData = [
 //     {
@@ -26,16 +21,17 @@ import CommentList from '../../components/comments/CommentList';
 //     }
 // ];
 
-describe('Comments component', () => {
+// TODO: re do these. Should test CommentsList component and contains Comment component
+describe('CommentsList component', () => {
     it('renders correctly', () => {
-        let wrapper = shallow(<Comments />)
+        let wrapper = shallow(<CommentsList />)
         let text = wrapper.find('h3').text();
 
-        expect(text).toEqual('Comments');
+        expect(text).toEqual('CommentsList');
     });
     it('contains a CommentList component', () => {
-        let wrapper = shallow(<Comments />)
-        let text = wrapper.find(CommentList); 
+        let wrapper = shallow(<CommentsList />)
+        let text = wrapper.find(Comment); 
 
         expect(text.length).toBe(1);
     })

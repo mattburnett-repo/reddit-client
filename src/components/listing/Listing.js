@@ -12,7 +12,8 @@ export default function Listing(props) {
                 </h3>
                 <h4>
                     article.id: {article.id}<br/>
-                    <a href="#">Number of comments: {article.num_comments}</a>
+                    {/* TODO: Router / Link here */}
+                    <a href="#">Number of comments: {article.num_comments}</a> 
                 </h4>
             </div>
         </button>

@@ -18,7 +18,7 @@ Only generally-worded requirements are provided. All design / code / test is don
 ---
 
 ## Testing
-* Tests are created using the React Testing Framework and are located in the repo under the src/__tests__ folder 
+* Tests are created using the React Testing Framework and are located in the repo under the src/\__tests\__ folder 
 
 * Run tests using 'npm test'
 
@@ -53,6 +53,5 @@ TBD
 * UI reacts responsively to changes in display size
   * Using grid layout, and I'd like to keep that, instead of throwing everything into Flexbox
 * Testing
-  * a few deliberate fails (tests not implemented yet)
   * Need to run Selenium after comments implementation
 * Better / more comprehensive error handling. mostly just display something and let user go back

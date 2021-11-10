@@ -9,4 +9,7 @@ describe('Comment component', () => {
 
         expect(text).toEqual('Comment');
     });
+    it('displays comment data', (() => {
+        expect(true).toBe(false);
+    }))
 });

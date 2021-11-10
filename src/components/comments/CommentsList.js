@@ -1,7 +1,7 @@
 import React from 'react';
 import Comment from './Comment';
 
-export default function CommentList({ comments }) {
+export default function CommentsList({ comments }) {
   if (!comments) {
     return null;
   }
