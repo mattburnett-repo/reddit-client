@@ -52,7 +52,6 @@ TBD
 * Implement comments feature
 * UI reacts responsively to changes in display size
   * Using grid layout, and I'd like to keep that, instead of throwing everything into Flexbox
-    * Will need to come back to this later. I have no more patience for this project.
 * Testing
   * a few deliberate fails (tests not implemented yet)
   * Need to run Selenium after comments implementation
