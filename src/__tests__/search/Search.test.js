@@ -8,7 +8,13 @@ describe('Search', () => {
     
         expect(text.length).toBe(1);
     });
-    it('submits a search request', () => {
-        expect(true).toBe(false);
+    it('submits a search request', () => {  
+        const mockCallBack = jest.fn();
+
+        let wrapper = shallow(<SearchDisplay handleSubmit={mockCallBack}/>);
+        expect(wrapper.find("form").length).toBe(1);
+
+        wrapper.find('form').simulate('submit');
+        expect(mockCallBack).toHaveBeenCalled();
     })
 });
