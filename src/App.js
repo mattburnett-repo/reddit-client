@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'; 
 
-import Filter from './features/Filter.js';
-import Search from './features/Search.js';
-import Listings from './features/Listings.js';
+import Filter from './features/filter/Filter.js';
+import Search from './features/search/Search.js';
+import Listings from './features/listings/Listings.js';
 
-import { requestAuth } from './stateManagement/authSlice.js';       
-import { getListings } from './stateManagement/listingsSlice';  
+import { requestAuth } from './features/auth/authSlice.js';       
+import { getListings } from './features/listings/listingsSlice';  
 
 import logo from './logo.svg';
 import './App.css';
@@ -37,7 +37,8 @@ export default function App() {
         <Search className="search"/>
       </section>
 
-      <section className="listings">
+      {/* TODO: Router / Links exact path to='/' listings and another path to='/comments'  */}
+      <section className="listings"> 
         <Listings />
       </section>
     </div>

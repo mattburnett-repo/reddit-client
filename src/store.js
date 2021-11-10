@@ -9,15 +9,17 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 
-import authReducer from './authSlice.js';  
-import listingsReducer from './listingsSlice.js';      
+import authReducer from './features/auth/authSlice.js';  
+import listingsReducer from './features/listings/listingsSlice.js';    
+import commentsReducer from './features/comments/commentsSlice.js';  
 
 // I don't like bulky / messy args, so...
 function rootReducer() {
     return {
         reducer: {
             auth: authReducer,
-            listings: listingsReducer
+            listings: listingsReducer,
+            comments: commentsReducer
         }    
     }
 }

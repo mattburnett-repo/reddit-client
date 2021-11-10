@@ -28,14 +28,17 @@ Only generally-worded requirements are provided. All design / code / test is don
 * HTML / CSS / JS 
 * Reddit API -> https://www.reddit.com/dev/api 
 * React / Redux 
-* React Testing Framework 
+* Test Driven Development
+  * React Testing Framework 
+  * Enzyme
+* Git / GitHub
 
 ---
 
 ## Features
 * App retrieves authorization_token from API
 * App communicates with Reddit API using OAuth
-* Users can retriee listings based on filters (best / controversial / hot / new / rising / top)
+* Users can retrieve listings based on filters (best / controversial / hot / new / rising / top)
 * Users can search listings
 
 ---
@@ -46,10 +49,11 @@ TBD
 ---
 
 ### TO DO
+* Implement comments feature
 * UI reacts responsively to changes in display size
   * Using grid layout, and I'd like to keep that, instead of throwing everything into Flexbox
     * Will need to come back to this later. I have no more patience for this project.
-* TESTS
-  * Project requirements state to test components. Maybe they just mean the display stuff, and not everything (ie reducers/slices/etc)?
-    * Maybe testing is just to confirm that what's on the wireframe is in the code, and basic API (mock?) call/s
+* Testing
+  * a few deliberate fails (tests not implemented yet)
+  * Need to run Selenium after comments implementation
 * Better / more comprehensive error handling. mostly just display something and let user go back

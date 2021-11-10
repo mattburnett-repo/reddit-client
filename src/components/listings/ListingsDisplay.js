@@ -1,13 +1,9 @@
-import { useSelector } from 'react-redux';
-import { selectListings, selectIsLoading } from '../stateManagement/listingsSlice';
+import Listing from '../listing/Listing';
 
-import Listing from './Listing';
+export default function ListingsDisplay(props) { 
+    const { isLoading, articleListings } = props;
 
-export default function Listings() { 
-    const articleListings = useSelector(selectListings);
-    const isLoading = useSelector(selectIsLoading); 
-
-    if(isLoading) {
+    if(isLoading) { // https://www.andreasreiterer.at/test-presentational-components-jest/
         return (
             <section className='articles-container'>
                 {/* TODO: add an isLoading animation thing here */}

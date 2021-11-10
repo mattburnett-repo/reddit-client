@@ -10,6 +10,10 @@ export default function Listing(props) {
                 <h3 className='article-title'>
                     <a href={article.url_overridden_by_dest}>{article.title}</a>
                 </h3>
+                <h4>
+                    article.id: {article.id}<br/>
+                    <a href="#">Number of comments: {article.num_comments}</a>
+                </h4>
             </div>
         </button>
     );
