@@ -17,7 +17,7 @@ export default function Listings() {
     } else {
         return (
             <section className='articles-container'>
-                {/* TODO: show pathname search term after 'All Articles' */}
+                {/* TODO: show pathname / search term after 'All Articles' */}
                 <h2 className='section-title'>All Articles</h2> 
                 {articleListings.map((article, index) => (
                     <div key={index}>     

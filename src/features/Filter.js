@@ -12,14 +12,14 @@ export default function Filter() {
     const dispatch = useDispatch();
     
     return (
-        <nav>
+        <nav name="filter">
             Filter by:
-            <button onClick={() => dispatch(getListings('best'))}>Best</button>
-            <button onClick={() => dispatch(getListings('controversial'))}>Controversial</button>
-            <button onClick={() => dispatch(getListings('hot'))}>Hot</button>
-            <button onClick={() => dispatch(getListings('new'))}>New</button>
-            <button onClick={() => dispatch(getListings('rising'))}>Rising</button>
-            <button onClick={() => dispatch(getListings('top'))}>Top</button>
+            <button name="best" onClick={() => dispatch(getListings('best'))}>Best</button>
+            <button name="controversial" onClick={() => dispatch(getListings('controversial'))}>Controversial</button>
+            <button name="hot" onClick={() => dispatch(getListings('hot'))}>Hot</button>
+            <button name="new" onClick={() => dispatch(getListings('new'))}>New</button>
+            <button name="rising" onClick={() => dispatch(getListings('rising'))}>Rising</button>
+            <button name="top" onClick={() => dispatch(getListings('top'))}>Top</button>
         </nav>
     );
 };

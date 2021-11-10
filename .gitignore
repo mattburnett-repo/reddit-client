@@ -24,4 +24,6 @@ yarn-error.log*
 
 # 20211105 mjb
 .env
-/src/components/apiSandbox.js
+/src/features/apiSandbox.js
+*.nope.*
+/src/AppDummy.js

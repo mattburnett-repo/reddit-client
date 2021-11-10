@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'; 
 
-import Filter from './components/Filter.js';
-import Search from './components/Search.js';
-import Listings from './components/Listings.js';
+import Filter from './features/Filter.js';
+import Search from './features/Search.js';
+import Listings from './features/Listings.js';
 
 import { requestAuth } from './stateManagement/authSlice.js';       
 import { getListings } from './stateManagement/listingsSlice';  
