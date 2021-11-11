@@ -25,9 +25,7 @@ export const getListings = createAsyncThunk(
             const json = await data.json();
     
             return json.data.children;  // return an array of the listings/articles 
-
-            // TODO: add pathName to state.pathName so that we can display it in Listings.js
-
+            
         } catch(e) {
             console.log(e);
         }  // end try/catch            

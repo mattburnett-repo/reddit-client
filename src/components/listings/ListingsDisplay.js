@@ -1,9 +1,9 @@
 import Listing from '../listing/Listing';
 
 export default function ListingsDisplay(props) { 
-    const { isLoading, articleListings } = props;
+    const { isLoading, articleListings, pathname } = props;
 
-    if(isLoading) { // https://www.andreasreiterer.at/test-presentational-components-jest/
+    if(isLoading) {
         return (
             <section className='articles-container'>
                 {/* TODO: add an isLoading animation thing here */}
@@ -11,17 +11,23 @@ export default function ListingsDisplay(props) {
             </section>
         );
     } else {
-        return (
+        if(!articleListings) {
+            return (
+                <section className='articles-container'>
+                    <div className='section-title'>No Articles Today</div>     
+                </section>            
+            )        
+        } else {
+         return (
             <section className='articles-container'>
-                {/* TODO: show pathname / search term after 'All Articles' */}
-                <h2 className='section-title'>All Articles</h2> 
+                <h2 className='section-title'>All Articles -- {pathname}</h2> 
                 {articleListings.map((article, index) => (
                     <div key={index}>     
                         <Listing key={article.id} article={article.data}/>
                     </div>
                     )
                 )}
-            </section>
-        );        
-    } // end if
+            </section>           
+         )}
+    };        
 };
