@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'; 
+import { Switch, Route } from 'react-router-dom';
 
-import Filter from './features/filter/Filter.js';
-import Search from './features/search/Search.js';
-import Listings from './features/listings/Listings.js';
+import Filter from './features/filter/filter.js';
+import Search from './features/search/search.js';
+import Listings from './features/listings/listings.js';
+import Comments from './features/comments/comments';
 
 import { requestAuth } from './features/auth/authSlice.js';       
 import { getListings } from './features/listings/listingsSlice';  
@@ -37,9 +39,11 @@ export default function App() {
         <Search className="search"/>
       </section>
 
-      {/* TODO: Router / Links exact path to='/' listings and another path to='/comments'  */}
       <section className="listings"> 
-        <Listings />
+        <Switch>
+          <Route path='/' exact component={Listings} />
+          <Route path='/comments/:article_id' component={Comments} />
+        </ Switch>
       </section>
     </div>
   );

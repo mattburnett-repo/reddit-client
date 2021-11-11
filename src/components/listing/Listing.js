@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 export default function Listing(props) {
     const { key, article } = props;
@@ -11,9 +12,10 @@ export default function Listing(props) {
                     <a href={article.url_overridden_by_dest}>{article.title}</a>
                 </h3>
                 <h4>
-                    article.id: {article.id}<br/>
+                    {/* article.id: {article.id}<br/> */}
                     {/* TODO: Router / Link here */}
-                    <a href="#">Number of comments: {article.num_comments}</a> 
+                    {/* <a href="#">Number of comments: {article.num_comments}</a>  */}
+                    <Link to={`/comments/${article.id}`} >{article.num_comments} comments</ Link>
                 </h4>
             </div>
         </button>

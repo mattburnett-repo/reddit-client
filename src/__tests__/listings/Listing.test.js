@@ -9,7 +9,6 @@ const mockData = {
         title: 'test title'
     };
 
-// TODO: look inside of the rendered component and confirm prop's details
 test('Listing component renders correctly from props', () => {
     let wrapper = shallow(<Listing article={mockData} />)
 
