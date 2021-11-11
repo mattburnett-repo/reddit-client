@@ -5,7 +5,7 @@ export default function Listing(props) {
 
     return (
         // key is article.id, passed from caller
-        <button key={key} className='article-container'> 
+        <div key={key} className='article-container'> 
             <img src={article.thumbnail} alt='' className='article-image' />
             <div className='article-content-container'>
                 <h3 className='article-title'>
@@ -16,8 +16,10 @@ export default function Listing(props) {
                     {/* TODO: Router / Link here */}
                     {/* <a href="#">Number of comments: {article.num_comments}</a>  */}
                     <Link to={`/comments/${article.id}`} >{article.num_comments} comments</ Link>
+
+                    {/* <button name="comments" onClick={handleClick(key)}>{article.num_comments} comments</button> */}
                 </h4>
             </div>
-        </button>
+        </div>
     );
 }

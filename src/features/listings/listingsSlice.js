@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk }  from '@reduxjs/toolkit';
 
 const REDDIT_OAUTH_URL = process.env.REACT_APP_REDDIT_OAUTH_URL;
 
-// TODO: make better use of destructuring when receiving a payload
-
 export const getListings = createAsyncThunk(
     'listings/getListings',
     async (pathname='', { getState }) => {  
@@ -11,11 +9,10 @@ export const getListings = createAsyncThunk(
             const authToken = getState().auth.token.value;
 
             const theBaseURL = `${REDDIT_OAUTH_URL}`;  
-            // It looks like the requirements mean by "Users can filter the data based on categories that are predefined" these pathNames:
-            //      best / controversial / hot / new / random / rising / top
-            // pathName also accepts search term/s
-            const pathName = '/' + pathname;
-            const theURL = `${theBaseURL}${pathName}`;
+            const theURL = `${theBaseURL}/${pathname}`;
+
+            console.log('getListings.pathname: ' + pathname)
+            console.log('getListings.theURL: ' + theURL)
     
             const data = await fetch(theURL, { 
                 method: 'GET',
@@ -30,9 +27,6 @@ export const getListings = createAsyncThunk(
             return json.data.children;  // return an array of the listings/articles 
 
             // TODO: add pathName to state.pathName so that we can display it in Listings.js
-            // return json; // get this to work in fulfilled
-
-            // return json + {pathName: 'pathName set in action creator'};
 
         } catch(e) {
             console.log(e);

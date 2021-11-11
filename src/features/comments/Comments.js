@@ -1,30 +1,28 @@
-// all the logic here, then call display 
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import CommentList from "../../components/comments/CommentsList"
+import { getComments, selectComments, selectIsLoading } from './commentsSlice';
+import CommentList from '../../components/comments/CommentsList';
 
-const mockData = [
-    {
-        id: 'test id 01',
-        article_id: 'test article id 01',
-        title: 'test title 01'
-    },
-    {
-        id: 'test id 02',
-        article_id: 'test article id 02',
-        title: 'test title 02'
-    },
-    {
-        id: 'test id 03',
-        article_id: 'test article id 03',
-        title: 'test title 03'
-    }
-];
+export default function Comments(props) {
+    const article_id = props.match.params.article_id;
 
-export default function Comments() {
+    const isLoading = useSelector(selectIsLoading);
+    const dispatch = useDispatch();
+    const comments = useSelector(selectComments);
+
+    async function loadData() { // add authIsExpired test
+        await dispatch(getComments(article_id));
+      }
+
+    useEffect(() => {
+        loadData();
+    }, []); // TODO: Fix 'React Hook ... has a missing dependency' problem/warning
+
     return (
         <div>
             <h3>Comments</h3>
-            <CommentList comments={mockData}/>
+            <CommentList isLoading={isLoading} comments={comments}/>
         </div>
     )
-}
+};

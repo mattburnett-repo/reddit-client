@@ -5,7 +5,11 @@ export default function Comment(props) {
     return (
         <div>
             <h3>Comment</h3>
-            comment: {comment.title}
+            articleID: {comment.article_id} 
+            commentID: {comment.data.id} 
+            author: {comment.data.author}
+            title: {comment.title}
+            body: {comment.data.body}
         </div>
     )
 }

@@ -28,4 +28,3 @@ const store = configureStore(rootReducer());
 
 // EXPORT
 export default store;
-

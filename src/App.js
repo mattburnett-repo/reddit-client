@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'; 
 import { Switch, Route } from 'react-router-dom';
 
-import Filter from './features/filter/filter.js';
-import Search from './features/search/search.js';
-import Listings from './features/listings/listings.js';
+import Filter from './features/filter/filter';
+import Search from './features/search/search';
+import Listings from './features/listings/listings';
 import Comments from './features/comments/comments';
 
-import { requestAuth } from './features/auth/authSlice.js';       
-import { getListings } from './features/listings/listingsSlice';  
+import { requestAuth } from './features/auth/authSlice'; 
+import { getListings } from './features/listings/listingsSlice'
+import { getComments } from './features/comments/commentsSlice'
 
 import logo from './logo.svg';
 import './App.css';
@@ -19,6 +20,7 @@ export default function App() {
   async function loadData() { // add authIsExpired test
     await dispatch(requestAuth());
     await dispatch(getListings()); // no-arg defaults to '/', which I think is listings for '/best' on server side
+    // await dispatch(getComments());
   }
 
   useEffect(() => {
@@ -42,6 +44,8 @@ export default function App() {
       <section className="listings"> 
         <Switch>
           <Route path='/' exact component={Listings} />
+          {/* <Route path='/:pathname' exact component={Listings} /> */}
+          {/* <Route path="/top" component={Listings} /> */}
           <Route path='/comments/:article_id' component={Comments} />
         </ Switch>
       </section>
