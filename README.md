@@ -38,6 +38,7 @@ Build deployed here -> https://suspicious-hawking-232766.netlify.app/
 ---
 
 ## Features
+* Responsive UI design using both Grid and Flex
 * App retrieves authorization_token from API
 * App communicates with Reddit API using OAuth
 * Users can retrieve listings based on filters (best / controversial / hot / new / rising / top)
