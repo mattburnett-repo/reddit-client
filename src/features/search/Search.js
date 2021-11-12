@@ -8,7 +8,6 @@ export default function Search() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        // dispatch(getListings('search?q=' + e.target.searchTerm.value)); // becomes pathname / pathName when it gets to getListings() 
         dispatch(getListings('search?q=' + e.target.searchTerm.value));
         e.target.searchTerm.value = '';
     }

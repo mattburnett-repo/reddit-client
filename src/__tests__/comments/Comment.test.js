@@ -3,13 +3,15 @@ import Comment from '../../components/comments/Comment'
 
 const mockData = 
     {
-        id: 'test id 01',
-        article_id: 'test article id 01',
-        title: 'test title 01'
+        'article_id': 'article_id_01',
+        'data.id': 'comment_id_01',
+        author: 'comment_author_01',
+        title: 'comment_title_01',
+        body: 'comment_body_01'
     };
 
 describe('Comment component', () => {
-    it('renders successfully', () => {
+    it('renders successfully with mock data', () => {
         let wrapper = shallow(<Comment comment={mockData} />);
         let text = wrapper.find('h3').text();
 
