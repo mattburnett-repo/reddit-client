@@ -11,14 +11,14 @@ export default function Comments(props) {
     const dispatch = useDispatch();
     const comments = useSelector(selectComments);
 
-    async function loadData() { // add authIsExpired test
-        await dispatch(getComments(article_id));
-      }
-
     useEffect(() => {
-        loadData();
-    }, []); // TODO: Fix 'React Hook ... has a missing dependency' problem/warning
+        async function loadData() { // add authIsExpired test
+            await dispatch(getComments(article_id));
+          }; 
 
+        loadData();
+    }, [article_id, dispatch]); 
+    
     return (
         <div>
             <h3>Comments</h3>

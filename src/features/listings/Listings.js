@@ -20,15 +20,15 @@ export default function Listings(props) {
     const articleListings = useSelector(selectListings);
 
    const dispatch = useDispatch();
-
-    async function loadData() { // add authIsExpired test
-      await dispatch(requestAuth()); 
-      await dispatch(getListings(pathname));
-    }
   
     useEffect(() => {
-      loadData();
-    }, [pathname]); // TODO: Fix 'React Hook ... has a missing dependency' problem/warning
+        async function loadData() { // add authIsExpired test
+            await dispatch(requestAuth()); 
+            await dispatch(getListings(pathname));
+        };
+
+        loadData();
+    }, [pathname, dispatch]); 
 
     if(authIsLoading) {
         return (

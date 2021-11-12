@@ -12,12 +12,7 @@ export default function Listing(props) {
                     <a href={article.url_overridden_by_dest}>{article.title}</a>
                 </h3>
                 <h4>
-                    {/* article.id: {article.id}<br/> */}
-                    {/* TODO: Router / Link here */}
-                    {/* <a href="#">Number of comments: {article.num_comments}</a>  */}
                     <Link to={`/comments/${article.id}`} >{article.num_comments} comments</ Link>
-
-                    {/* <button name="comments" onClick={handleClick(key)}>{article.num_comments} comments</button> */}
                 </h4>
             </div>
         </div>
