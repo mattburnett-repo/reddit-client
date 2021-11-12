@@ -20,9 +20,6 @@ export default function Comments(props) {
     }, [article_id, dispatch]); 
     
     return (
-        <div>
-            <h3>Comments</h3>
-            <CommentList isLoading={isLoading} comments={comments}/>
-        </div>
+        <CommentList isLoading={isLoading} comments={comments}/>
     )
 };

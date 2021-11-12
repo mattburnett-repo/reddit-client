@@ -15,15 +15,19 @@ export default function ListingsDisplay(props) {
             )        
         } else {
          return (
-            <section className='articles-container'>
+            // <section className='articles-container'>
+            <>
                 <h2 className='section-title'>All Articles -- {pathname}</h2> 
-                {articleListings.map((article, index) => (
-                    <div key={index}>     
-                        <Listing key={article.id} article={article.data}/>
-                    </div>
-                    )
-                )}
-            </section>           
+                <section id="grid">
+                    
+                    {articleListings.map((article, index) => (
+                        <div key={index}>     
+                            <Listing key={article.id} article={article.data}/>
+                        </div>
+                        )
+                    )}
+                </section>   
+            </>        
          )}
     };        
 };

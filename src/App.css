@@ -1,18 +1,18 @@
-/* TODO: change logo animation to fade in/out instead of rotate */
 
-* {
+/* * {
   border: 1px solid pink;
   margin: 5px;
-}
+} */
 
 .App {
   background: #F5F5F5; 
   text-align: center;
 }
 
+/* logo */
 .App-logo {
-  height: 20vmin;
-  width: 20vmin;
+  height: 30vmin;
+  width: 30vmin;
   pointer-events: none;
   border-radius: 50%;
 }
@@ -80,16 +80,25 @@ section {
   margin: auto;
 }
 
+/* articles */
 .articles-container {
   width: 100%;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 5px;
   grid-template-columns: repeat(5, 215px);
-  grid-gap: 16px;
   justify-content: center;
   background-color: #f2f2f2;
   padding-bottom: 48px;
 }
 
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 5px;
+}
+
+/* article */
 .article-container {
   cursor: pointer;
   border-radius: 6px;
@@ -98,7 +107,8 @@ section {
   color: #141c3a;
   padding: 0;
   text-align: start;
-  width: 215px;
+  /* width: 215px; */
+  width: 325px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -120,8 +130,12 @@ section {
 }
 
 .article-image {
-  width: 100%;
+  width: auto;
   display: block;
+}
+
+.article-comment-link {
+  text-align: center;
 }
 
 .section-title {
@@ -143,14 +157,41 @@ section {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+
+  font-size: 1.5rem;
 }
 
-@media (max-width: 510px) {
+.filterLink {
+  font-size: 1.25rem;
+  background-color: rgb(220, 220, 220);
+
+  text-decoration: none;
+}
+.filterLink:active {
+  background-color: lightblue;
+}
+
+@media (max-width: 1005px) {
   .filterSearch {
     justify-content: center;
   };
   .App-header {
     justify-content: center;
+  }
+  .headerLeftText, .headerRightText {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 471px) {
+  .filterSearch {
+    justify-content: center;
+  };
+  .App-header {
+    justify-content: center;
+  }
+  .headerLeftText, .headerRightText {
+    font-size: 1rem;
   }
 }
 
@@ -171,4 +212,40 @@ section {
 
 .listings {
   display: inline-block;
+}
+
+.comments-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5rem;
+}
+
+.comments-container {
+  display: block;
+  justify-content: right;
+  align-content: right;
+  align-items: right;
+
+  border: 3px solid black;
+}
+
+.comment-container {
+  width: 80%;
+  margin: 15px auto;
+  text-align: left;
+  font-size: 1.125rem;
+
+  background-color: rgb(240, 240, 240);
+}
+.comment-header {
+  background-color: rgb(235, 235, 235);
+}
+.comment-body {
+  background-color: rgb(245, 245, 245);
+}
+.comment-label {
+  font-weight: 800;
 }
