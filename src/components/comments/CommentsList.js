@@ -1,4 +1,5 @@
 import Comment from './Comment';
+import LoadingMessage from '../Loading/LoadingMessage.js';
 
 export default function CommentsList(props) {
   const { isLoading, comments } = props;
@@ -9,12 +10,7 @@ export default function CommentsList(props) {
     )
   } else {
     if(isLoading) { 
-      return (
-          <section className='articles-container'>
-              {/* TODO: add an isLoading animation thing here */}
-              <div className='section-title'>... loading</div>  
-          </section>
-      );
+      return (<LoadingMessage message="... loading comments"/>);
     } else {
       return (
         <>

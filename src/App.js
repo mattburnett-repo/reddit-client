@@ -6,6 +6,7 @@ import Listings from './features/listings/listings';
 import Comments from './features/comments/comments';
 
 import logo from './logo.svg';
+// import './reset.css';
 import './App.css';
 
 export default function App() {    
@@ -32,7 +33,7 @@ export default function App() {
           <Route path="/rising"><Listings pathname="rising"/></ Route>
           <Route path="/top"><Listings pathname="top"/></ Route>
 
-          <Route path="/search"><Listings pathname="search"/></ Route>
+          {/* <Route path="/search"><Listings pathname="search"/></ Route> */}
 
           <Route path='/comments/:article_id' component={Comments} />
         </ Switch>

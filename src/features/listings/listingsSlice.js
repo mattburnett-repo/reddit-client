@@ -11,8 +11,8 @@ export const getListings = createAsyncThunk(
             const theBaseURL = `${REDDIT_OAUTH_URL}`;  
             const theURL = `${theBaseURL}/${pathname}`;
 
-            console.log('getListings.pathname: ' + pathname)
-            console.log('getListings.theURL: ' + theURL)
+            // console.log('getListings.pathname: ' + pathname)
+            // console.log('getListings.theURL: ' + theURL)
     
             const data = await fetch(theURL, { 
                 method: 'GET',

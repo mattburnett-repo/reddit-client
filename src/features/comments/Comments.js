@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getComments, selectComments, selectIsLoading } from './commentsSlice';
-import CommentList from '../../components/comments/CommentsList';
+import CommentList from '../../components/Comments/CommentsList';
 
 export default function Comments(props) {
     const article_id = props.match.params.article_id;

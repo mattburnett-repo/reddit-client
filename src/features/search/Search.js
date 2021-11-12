@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import SearchDisplay from "../../components/search/SearchDisplay";
+import SearchDisplay from "../../components/Search/SearchDisplay";
 import { getListings } from '../listings/listingsSlice';
 
 export default function Search() {

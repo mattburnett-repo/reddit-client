@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import FilterDisplay from '../../components/filter/FilterDisplay';
+import FilterDisplay from '../../components/Filter/FilterDisplay';
 import { getListings } from '../listings/listingsSlice';
 
 export default function Filter(filterTerm = '') {

@@ -1,15 +1,11 @@
-import Listing from '../listing/Listing';
+import Listing from '../Listing/Listing';
+import LoadingMessage from '../Loading/LoadingMessage'
 
 export default function ListingsDisplay(props) { 
     const { isLoading, articleListings, pathname } = props;
 
     if(isLoading) {
-        return (
-            <section className='articles-container'>
-                {/* TODO: add an isLoading animation thing here */}
-                <div className='section-title'>... loading</div>  
-            </section>
-        );
+        return (<LoadingMessage message="... loading articles"/>);
     } else {
         if(!articleListings) {
             return (

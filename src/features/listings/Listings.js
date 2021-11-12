@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 
 import { selectListings, selectIsLoading } from './listingsSlice';
 
-import ListingsDisplay from '../../components/listings/ListingsDisplay';
+import ListingsDisplay from '../../components/Listings/ListingsDisplay';
+import LoadingMessage from '../../components/Loading/LoadingMessage';
 
 import { selectIsLoading as selectAuthIsLoading, requestAuth } from '../auth/authSlice';
 import { getListings } from './listingsSlice';
@@ -31,12 +32,7 @@ export default function Listings(props) {
     }, [pathname, dispatch]); 
 
     if(authIsLoading) {
-        return (
-            <section className='articles-container'>
-                {/* TODO: add an isLoading animation thing here */}
-                <div className='section-title'>... requesting auth token</div>  
-            </section>
-        );
+        return (<LoadingMessage message="... authorizing"/>);
     } else {
         return (
             <ListingsDisplay isLoading={isLoading} articleListings={articleListings} pathname={pathname}/>
