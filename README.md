@@ -4,6 +4,8 @@ https://www.codecademy.com/paths/full-stack-engineer-career-path/tracks/fscp-rea
 
 Only generally-worded requirements are provided. All design / code / test is done without assistance / guidance.
 
+Build deployed here -> https://suspicious-hawking-232766.netlify.app/
+
 ---
 
 ## Assets
@@ -18,7 +20,7 @@ Only generally-worded requirements are provided. All design / code / test is don
 ---
 
 ## Testing
-* Tests are created using the React Testing Framework and are located in the repo under the src/\__tests\__ folder 
+* Tests are created using Jest / Enzyme and are located in the repo under the src/\__tests\__ folder 
 
 * Run tests using 'npm test'
 
@@ -29,7 +31,7 @@ Only generally-worded requirements are provided. All design / code / test is don
 * Reddit API -> https://www.reddit.com/dev/api 
 * React / Redux 
 * Test Driven Development
-  * React Testing Framework 
+  * Jest
   * Enzyme
 * Git / GitHub
 
@@ -39,19 +41,12 @@ Only generally-worded requirements are provided. All design / code / test is don
 * App retrieves authorization_token from API
 * App communicates with Reddit API using OAuth
 * Users can retrieve listings based on filters (best / controversial / hot / new / rising / top)
-* Users can search listings
+* Users can view comments related to a given listing
+* Users can search reddit.com for specific search terms
+* Build deployed to Netlify: https://suspicious-hawking-232766.netlify.app/
 
 ---
 
 ### Future work
-TBD
-
----
-
-### TO DO
-* Implement comments feature
-* UI reacts responsively to changes in display size
-  * Using grid layout, and I'd like to keep that, instead of throwing everything into Flexbox
-* Testing
-  * Need to run Selenium after comments implementation
-* Better / more comprehensive error handling. mostly just display something and let user go back
+* Better / more comprehensive error handling. Mostly just display something and let user go back
+  * Look at React error boundary
