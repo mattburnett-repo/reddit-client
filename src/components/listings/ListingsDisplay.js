@@ -6,6 +6,7 @@ export default function ListingsDisplay(props) {
 
     if(isLoading) {
         return (<LoadingMessage message="... loading articles"/>);
+        // return (<LoadingMessage type="simple-spinner" message="... loading articles"/>);
     } else {
         if(!articleListings) {
             return (

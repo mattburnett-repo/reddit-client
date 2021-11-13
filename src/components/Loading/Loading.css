@@ -8,10 +8,6 @@
     border-top: 20px solid darkblue;
     width: 200px;
     height: 200px;
-
-    margin: 20px auto;
-    padding: 50px;
-
     animation: spinner 4s linear infinite;
   }
   
@@ -23,7 +19,5 @@
   .spinnerText {
       font-size: 1.5rem;
       font-weight: 700;
-
-      padding: 20px;
   }
   
